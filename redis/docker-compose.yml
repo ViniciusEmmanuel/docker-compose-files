@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    restart: on-failure
+    volumes:
+      - $HOME/Dev/docker/volumes/redis:/data
+    network_mode: "bridge"

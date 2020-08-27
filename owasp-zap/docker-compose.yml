@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    container_name: owasp-zap
+    image: owasp/zap2docker-stable:latest
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+    command: zap.sh -daemon -host 0.0.0.0 -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true -config api.disablekey=true
+    volumes:
+      - $HOME/Dev/docker/volumes/owasp-zap:/code
+    network_mode: "bridge"

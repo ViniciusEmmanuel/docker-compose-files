@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  db-postgres:
+    container_name: postgres
+    image: postgres:alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: "docker"
+      POSTGRES_PASSWORD: "docker"
+    ports:
+      - "5432:5432"
+    volumes:
+      - $HOME/Dev/docker/volumes/postgres:/var/lib/postgresql/data
+    network_mode: "bridge"

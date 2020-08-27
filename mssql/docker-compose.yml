@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  db:
+    container_name: mssql
+    image: microsoft/mssql-server-linux:2017-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "docker@Docker"
+    ports:
+      - "1433:1433"
+    volumes:
+      - $HOME/Dev/docker/volumes/mssql/data:/var/opt/mssql/data
+      - $HOME/Dev/docker/volumes/mssql/log:/var/opt/mssql/log
+      - $HOME/Dev/docker/volumes/mssql/secrets:/var/opt/mssql/secrets
+    network_mode: "bridge"
