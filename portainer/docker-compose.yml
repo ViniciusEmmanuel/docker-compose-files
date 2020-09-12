@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    container_name: portainer
+    image: portainer/portainer:alpine
+    restart: on-failure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/Dev/docker/volumes/portainer/data:/data portainer/portainer-ce
+    ports:
+      - "9090:9000"
+    network_mode: "bridge"
