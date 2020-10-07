@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  db:
+    container_name: ravendb
+    image: ravendb/ravendb:ubuntu-latest
+    restart: "no"
+    environment:
+      - RAVEN_Security_UnsecuredAccessAllowed=PublicNetwork
+      - RAVEN_Setup_Mode=None
+      - RAVEN_License_Eula_Accepted=true
+      - "RAVEN_ServerUrl=http://0.0.0.0:8008"
+      - "RAVEN_PublicServerUrl=http://hostos:8080"
+      - "RAVEN_ServerUrl_Tcp=tcp://0.0.0.0:38888"
+      - "RAVEN_PublicServerUrl_Tcp=tcp://hostos:38888"
+    ports:
+      - "8008:8080"
+      - "38888:38888"
+    network_mode: "bridge"
