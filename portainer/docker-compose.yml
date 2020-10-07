@@ -3,7 +3,7 @@ services:
   db:
     container_name: portainer
     image: portainer/portainer:alpine
-    restart: on-failure
+    restart: "no"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - $HOME/Dev/docker/volumes/portainer/data:/data portainer/portainer-ce
