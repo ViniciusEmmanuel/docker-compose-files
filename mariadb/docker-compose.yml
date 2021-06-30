@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  db:
+    container_name: mariadb 
+    image: mariadb:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MARIADB_USER: "docker"
+      MARIADB_PASSWORD: "docker"
+      MARIADB_ROOT_PASSWORD: "docker"
+    ports:
+      - "3306:3306"
+    volumes:
+      - $HOME/Dev/docker/volumes/mariadb:/var/lib/mysql
+    network_mode: "bridge"
